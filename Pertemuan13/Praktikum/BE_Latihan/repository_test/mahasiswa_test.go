@@ -36,7 +36,6 @@ func TestInsertMahasiswa(t *testing.T) {
 		Prodi:  "Teknik Informatika",
 		Alamat: "Jakarta",
 		Email:  "[EMAIL_ADDRESS]",
-		NoHP:   "08123456789",
 		Hobi:   []string{"membaca", "berenang"},
 	}
 
@@ -74,7 +73,6 @@ func TestUpdateMahasiswa(t *testing.T) {
 		Prodi:  "Teknik Informatika",
 		Alamat: "Jakarta",
 		Email:  "[EMAIL_ADDRESS]",
-		NoHP:   "08111111111", // Nomor HP ini akan diupdate
 		Hobi:   []string{"belajar"},
 	})
 
@@ -84,14 +82,12 @@ func TestUpdateMahasiswa(t *testing.T) {
 		Prodi:  "Sistem Informasi",
 		Alamat: "Bandung",
 		Email:  "[EMAIL_ADDRESS_UPDATED]",
-		NoHP:   "08987654321", // Ini No HP yang kita harapkan muncul di database
 		Hobi:   []string{"membaca", "ngoding", "menulis"},
 	})
 	
 	assert.NoError(t, err)
 	if err == nil {
 		assert.NotNil(t, result)
-		assert.Equal(t, "08987654321", result.NoHP)
 	}
 }
 
